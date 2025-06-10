@@ -1,0 +1,501 @@
+/* Variables de diseño programador */
+:root {
+    --bg-dark: #0a192f;
+    /* Azul noche oscuro */
+    --bg-light: #112240;
+    /* Azul noche medio */
+    --accent: #64ffda;
+    /* Cian brillante */
+    --accent-secondary: #ff6482;
+    /* Rosa neón */
+    --text-primary: #ccd6f6;
+    /* Azul claro */
+    --text-secondary: #8892b0;
+    /* Azul grisáceo */
+    --white: #e6f1ff;
+    /* Blanco azulado */
+    --card-bg: #112240;
+    /* Fondo de tarjetas */
+    --highlight: rgba(100, 255, 218, 0.1);
+    /* Resaltado sutil */
+    --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* Reset moderno */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'SF Mono', 'Fira Code', 'Roboto Mono', monospace;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Estilo de terminal para código */
+code {
+    font-family: 'Fira Code', monospace;
+    background: rgba(10, 25, 47, 0.8);
+    color: var(--accent);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+    border-left: 2px solid var(--accent);
+}
+
+/* Header estilo IDE moderno */
+header {
+    background-color: var(--bg-light);
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+    position: relative;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+.profile-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+    transition: var(--transition);
+}
+
+.profile-img:hover {
+    box-shadow: 0 0 30px rgba(100, 255, 218, 0.4);
+    transform: translateY(-3px);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+    font-weight: 600;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    position: relative;
+}
+
+.subtitle::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease;
+}
+
+.subtitle:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Secciones estilo "ventana de código" */
+section {
+    background: var(--bg-light);
+    border-radius: 5px;
+    padding: 2.5rem;
+    margin: 2rem 0;
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+    transition: var(--transition);
+    border-left: 2px solid transparent;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    border-left: 2px solid var(--accent);
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+    position: relative;
+    display: inline-block;
+}
+
+h2::before {
+    content: '// ';
+    color: var(--accent);
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--accent);
+}
+
+/* Barra de progreso estilo terminal */
+.progress-container {
+    margin: 2rem 0;
+}
+
+.progress-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.progress-title span:first-child::before {
+    content: '├─ ';
+    color: var(--accent);
+}
+
+.progress-title span:last-child::before {
+    content: '[';
+}
+
+.progress-title span:last-child::after {
+    content: ']';
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background-color: rgba(100, 255, 218, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+    border-radius: 3px;
+    transition: width 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+    width: 0;
+    position: relative;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg,
+            rgba(255, 255, 255, 0.1) 0%,
+            rgba(255, 255, 255, 0.3) 50%,
+            rgba(255, 255, 255, 0.1) 100%);
+    animation: progressShine 2.5s infinite;
+}
+
+@keyframes progressShine {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Certificaciones estilo "tarjeta de desarrollador" */
+.certification-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.certification-card {
+    background: var(--card-bg);
+    border-radius: 5px;
+    padding: 1.5rem;
+    transition: var(--transition);
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.certification-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+            rgba(100, 255, 218, 0.05) 0%,
+            rgba(100, 255, 218, 0.01) 100%);
+    z-index: 0;
+}
+
+.certification-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 30px -15px rgba(2, 12, 27, 0.7);
+    border: 1px solid rgba(100, 255, 218, 0.3);
+}
+
+.certification-card h3 {
+    color: var(--white);
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    position: relative;
+    z-index: 1;
+}
+
+.certification-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.certification-card .date {
+    color: var(--accent);
+    font-family: 'SF Mono', monospace;
+    font-size: 0.8rem;
+}
+
+/* Habilidades estilo "tags de código" */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+}
+
+.skill-tag {
+    background: rgba(100, 255, 218, 0.1);
+    color: var(--accent);
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    font-family: 'SF Mono', monospace;
+    transition: var(--transition);
+    border: 1px solid rgba(100, 255, 218, 0.2);
+}
+
+.skill-tag:hover {
+    background: rgba(100, 255, 218, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(100, 255, 218, 0.1);
+}
+
+/* Botones estilo IDE */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    color: var(--accent);
+    padding: 0.75rem 1.5rem;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: var(--transition);
+    border: 1px solid var(--accent);
+    margin-top: 1rem;
+    font-family: 'SF Mono', monospace;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: rgba(100, 255, 218, 0.1);
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(100, 255, 218, 0.2);
+}
+
+.btn:hover::before {
+    width: 100%;
+}
+
+.btn i {
+    margin-right: 0.5rem;
+}
+
+.btn-certificate {
+    border-color: var(--accent-secondary);
+    color: var(--accent-secondary);
+}
+
+.btn-certificate::before {
+    background: rgba(255, 100, 130, 0.1);
+}
+
+/* Footer estilo consola */
+footer {
+    background: var(--bg-light);
+    padding: 2rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(100, 255, 218, 0.1);
+    text-align: center;
+    position: relative;
+}
+
+footer::before {
+    content: '// -----';
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--accent);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    background: var(--bg-dark);
+    padding: 0 1rem;
+}
+/* Estilos unificados para redes sociales */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+    margin-bottom: 0; /* Elimina el margen inferior */
+    padding-bottom: 1rem; /* Añade padding si necesitas espacio */
+}
+
+.social-links a {
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(100, 255, 218, 0.2);
+    background: rgba(100, 255, 218, 0.05);
+}
+
+.social-links a:hover {
+    color: var(--accent);
+    transform: translateY(-3px);
+    background: rgba(100, 255, 218, 0.1);
+    box-shadow: 0 5px 15px rgba(100, 255, 218, 0.2);
+}
+
+/* Para el header específicamente */
+header .social-links {
+    margin-bottom: 1.5rem;
+}
+
+/* Para el footer específicamente */
+footer .social-links {
+    margin: 1rem 0 1.5rem;
+}
+
+
+.email-link {
+    color: var(--accent);
+    text-decoration: none;
+    display: inline-block;
+    margin: 1rem 0;
+    margin-top: 1.5rem;
+    font-family: 'SF Mono', monospace;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    position: relative;
+}
+
+.email-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+    display: none;
+}
+
+.email-link:hover::after {
+    width: 100%;
+}
+
+/* Efectos especiales para programadores */
+.terminal-effect {
+    position: relative;
+}
+
+.terminal-effect::before {
+    content: '$';
+    position: absolute;
+    left: -20px;
+    color: var(--accent);
+    font-family: 'Fira Code', monospace;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .certification-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.profile-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    /* Asegura que la foto cubra el espacio sin deformarse */
+    object-position: center top;
+    /* Enfoca el rostro */
+    border: 2px solid var(--accent);
+    /* Resto de tus estilos... */
+}
