@@ -31,7 +31,7 @@ function initTerminalAnimations() {
 }
 
 function setupProgressBar() {
-    const coursesCompleted = 21;
+    const coursesCompleted = 28;
     const totalCourses = 45;
     const percentage = (coursesCompleted / totalCourses) * 100;
     const roundedPercentage = percentage.toFixed(1);
