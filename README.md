@@ -60,7 +60,7 @@ Este portafolio fue creado con el propósito de:
 
 ## 🚀 Cómo ejecutar el proyecto
 
-Puedes verlo gracias a GitHub Pages: 
+Puedes verlo gracias a GitHub Pages: https://anquiro20.github.io/Mi_portafolio/ 
 
 1. Clona el repositorio:
    ```bash
