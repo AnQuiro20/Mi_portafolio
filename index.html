@@ -4,13 +4,21 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Andrés Quirós Rojas</title>
+    <title>Andrés Quirós Rojas | Ingeniería en Computación</title>
+    <meta name="description"
+        content="Portafolio profesional de Andrés Quirós Rojas, estudiante de Ingeniería en Computación en el Tecnológico de Costa Rica. Proyectos, certificaciones y habilidades técnicas." />
+    <meta name="keywords"
+        content="desarrollador, portafolio, ingeniería en computación, TEC, Costa Rica, programador" />
+
+    <!-- Favicon (recomiendo generar uno en favicon.io) -->
+    <link rel="icon" type="image/png" href="favicon.png" />
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=SF+Mono&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
 
     <!-- CSS -->
@@ -18,273 +26,647 @@
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <img src="foto2.jpeg" alt="Foto de Andrés Quirós Rojas" class="profile-img" width="180" height="180" />
+    <!-- Canvas para efecto de partículas (fondo dinámico) -->
+    <canvas id="particles-canvas"></canvas>
 
-            <h1>Andrés Quirós Rojas</h1>
-            <p class="subtitle">Estudiante de Ingeniería en Computación</p>
-            <div class="social-links">
-                <a href="mailto:quirosandres230@gmail.com" aria-label="Enviar correo">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://github.com/AnQuiro20" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://linkedin.com/in/andres-quirós-b769a0366" target="_blank">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://x.com/andresquirosr" target="_blank">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://www.instagram.com/andresquirosrojas/" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                </a>
+    <!-- Header/Navegación -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">&lt;AnQuiRo/&gt;</a>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">// sobre-mi</a></li>
+                <li><a href="#projects" class="nav-link">// proyectos</a></li>
+                <li><a href="#certifications" class="nav-link">// certificaciones</a></li>
+                <li><a href="#skills" class="nav-link">// habilidades</a></li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container header-content">
+            <div class="profile-wrapper">
+                <div class="profile-img-container">
+                    <img src="foto2.jpeg" alt="Andrés Quirós Rojas - Estudiante de Ingeniería en Computación"
+                        class="profile-img" width="200" height="200" />
+                    </div>
+                </div>
             </div>
 
+            <div class="header-text">
+                <h1>
+                    <span class="greeting">&lt;h1&gt;</span>
+                    Andrés Quirós Rojas
+                    <span class="greeting">&lt;/h1&gt;</span>
+                </h1>
+                <p class="subtitle">Estudiante de Ingeniería en Computación <span class="blinking-cursor">|</span></p>
+                <p class="location"><i class="fas fa-map-marker-alt"></i> San Carlos, Costa Rica · Tecnológico de Costa
+                    Rica</p>
+
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Contactarme
+                    </a>
+                    <a href="Archivos/CV.pdf" class="btn btn-outline" download>
+                        <i class="fas fa-download"></i> Descargar CV
+                    </a>
+                </div>
+
+                <div class="social-links">
+                    <a href="mailto:quirosandres230@gmail.com" aria-label="Enviar correo" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://github.com/AnQuiro20" target="_blank" aria-label="GitHub" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/andres-quirós-b769a0366" target="_blank" aria-label="LinkedIn"
+                        class="social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://x.com/andresquirosr" target="_blank" aria-label="Twitter/X" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/andresquirosrojas/" target="_blank" aria-label="Instagram"
+                        class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </header>
 
     <main class="container">
-        <section class="about terminal-effect">
+        <!-- Sección Sobre Mí mejorada -->
+        <section id="about" class="about glass-card">
             <h2>Sobre Mí</h2>
-            <p>
-                <span class="code-line">const</span> andres = {<br />
-                &nbsp;&nbsp;<span class="code-property">rol</span>:
-                <span class="code-string">"Estudiante de Ingeniería en Computación"</span>,<br />
-                &nbsp;&nbsp;<span class="code-property">universidad</span>:
-                <span class="code-string">"Instituto Tecnológico de Costa Rica"</span>,<br />
-                &nbsp;&nbsp;<span class="code-property">pasiones</span>: [
-                <span class="code-string">"Tecnología"</span>,
-                <span class="code-string">"Innovación"</span>,
-                <span class="code-string">"Aprendizaje continuo"</span>
-                ]<br />
-                };
-            </p>
-        </section>
-
-        <section class="education">
-            <h2>Formación Académica</h2>
-
-            <div class="education-item">
-                <h3>Tecnológico de Costa Rica</h3>
-                <p class="degree-title">Ingeniería en Computación</p>
-                <p class="degree-period"><span class="code-comment">// 2023 - Presente</span></p>
-
-                <div class="progress-container">
-                    <div class="progress-title">
-                        <span>Progreso de la carrera</span>
-                        <span id="progress-percentage">0%</span>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-intro">
+                        <span class="highlight">&gt; _</span> Hola, soy Andrés, un apasionado por la tecnología y la
+                        innovación.
+                    </p>
+                    <div class="code-block">
+                        <pre><span class="code-line">const</span> andres = {</pre>
+                        <pre>  <span class="code-property">rol</span>: <span class="code-string">"Estudiante de Ingeniería en Computación"</span>,</pre>
+                        <pre>  <span class="code-property">universidad</span>: <span class="code-string">"Instituto Tecnológico de Costa Rica"</span>,</pre>
+                        <pre>  <span class="code-property">ubicación</span>: <span class="code-string">"San Carlos, Costa Rica"</span>,</pre>
+                        <pre>  <span class="code-property">pasiones</span>: [</pre>
+                        <pre>    <span class="code-string">"Desarrollo de Software"</span>,</pre>
+                        <pre>    <span class="code-string">"Inteligencia Artificial"</span>,</pre>
+                        <pre>    <span class="code-string">"Arquitectura de Sistemas"</span></pre>
+                        <pre>  ],</pre>
+                        <pre>  <span class="code-property">aprendiendo</span>: <span class="code-string">"Machine Learning & Cloud Computing"</span></pre>
+                        <pre>};</pre>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">6+</span>
+                        <span class="stat-label">Proyectos Completados en GitHub</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">7</span>
+                        <span class="stat-label">Certificaciones</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">3er</span>
+                        <span class="stat-label">Año de carrera</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="projects">
-            <h2>Proyectos Recientes</h2>
+        <!-- Sección Educación mejorada -->
+        <section id="education" class="education glass-card">
+            <h2>Formación Académica</h2>
+            <div class="education-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Tecnológico de Costa Rica</h3>
+                        <p class="degree-title">Ingeniería en Computación</p>
+                        <p class="degree-period"><span class="code-comment">// 2023 - Presente</span></p>
+                        <p class="degree-description">Cursando el 4to año con enfoque en desarrollo de software y
+                            sistemas inteligentes.</p>
 
-            <div class="certification-grid">
-                <article class="certification-card">
-                    <h3>Portafolio Web</h3>
-                    <p><span class="code-comment">// Tecnologías:</span> HTML5, CSS3, JavaScript</p>
-                    <p>Diseño y desarrollo de sitio web personal responsive.</p> <a href="https://github.com/AnQuiro20/Mi_portafolio" class="btn"> <i
-                            class="fas fa-external-link-alt"></i> Ver Proyecto </a> </article>
+                        <div class="progress-container premium-progress">
+                            <div class="progress-header">
+                                <span class="progress-label">Progreso académico</span>
+                                <div class="progress-badge">
+                                    <span id="progress-percentage">0%</span>
+                                    <span class="badge-text">completado</span>
+                                </div>
+                            </div>
+                            <div class="progress-bar premium">
+                                <div class="progress-fill" id="progress-fill"></div>
+                            </div>
+                            <div class="progress-details">
+                                <span><i class="fas fa-check-circle"></i> 29 cursos aprobados</span>
+                                <span><i class="fas fa-clock"></i> 16 cursos restantes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                <article class="certification-card">
-                    <h3>Time is Money</h3>
-                    <p><span class="code-comment">// Tecnologías:</span> HTML, CSS, JavaScript</p>
-                    <p>
-                        Convierte tus gastos en tiempo de trabajo. Una aplicación web que transforma tus gastos
-                        monetarios en
-                        horas/minutos de trabajo basados en tu tarifa horaria.
-                    </p>
-                    <a href="https://github.com/AnQuiro20/Time-is-Money-Prototipo" class="btn" target="_blank"
-                        rel="noopener noreferrer">
-                        <i class="fas fa-code"></i> Ver Proyecto
-                    </a>
+        <!-- Sección Proyectos con filtros -->
+        <section id="projects" class="projects glass-card">
+            <h2>Proyectos Destacados</h2>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="python">Python</button>
+                <button class="filter-btn" data-filter="compiler">Compiladores</button>
+            </div>
+
+            <div class="project-grid">
+                <!-- Tarjeta de proyecto mejorada -->
+                <article class="project-card" data-category="web">
+                    <div class="project-media">
+                        <div class="project-placeholder">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <span class="project-badge">Web</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Time is Money</h3>
+                        <p>Convierte tus gastos en tiempo de trabajo. Una aplicación web que transforma gastos
+                            monetarios en horas/minutos de trabajo basados en tu tarifa horaria.</p>
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/AnQuiro20/Time-is-Money-Prototipo" class="btn-project"
+                                target="_blank">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                            <a href="#" class="btn-project demo-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                        </div>
+                    </div>
                 </article>
 
-                <article class="certification-card">
-                    <h3>Sistema de Registro de Reuniones con Reconocimiento de Voz</h3>
-                    <p><span class="code-comment">// Tecnologías:</span> Python, SpeechRecognition</p>
-                    <p>
-                        Sistema para registrar minutas de reuniones mediante reconocimiento de voz, organizar agendas y
-                        participantes, generar reportes estadísticos y guardar/cargar datos de la reunión.
-                    </p>
-                    <a href="https://github.com/AnQuiro20/Meeting-Recording-System-with-Voice-Recognition" class="btn"
-                        target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-code"></i> Ver Proyecto
-                    </a>
+                <article class="project-card" data-category="python">
+                    <div class="project-media">
+                        <div class="project-placeholder">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <span class="project-badge">Python</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Dashboard de compras online</h3>
+                        <p>Aplicación interactiva con Streamlit para analizar y visualizar hábitos de compra en
+                            plataformas de e-commerce.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Streamlit</span>
+                            <span>Pandas</span>
+                            <span>Plotly</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/AnQuiro20/Dashboard-de-compras-online" class="btn-project"
+                                target="_blank">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                        </div>
+                    </div>
                 </article>
 
-                <article class="certification-card">
-                    <h3>Registro Ganadero</h3>
-                    <p><span class="code-comment">// Tecnologías:</span> HTML5, CSS3, JavaScript, Base de datos</p>
-                    <p>App para registrar y gestionar ganado.</p>
-                    <a href="https://github.com/AnQuiro20/FincaQR" class="btn" target="_blank"
-                        rel="noopener noreferrer">
-                        <i class="fas fa-external-link-alt"></i> Ver Proyecto
-                    </a>
+                <article class="project-card" data-category="compiler">
+                    <div class="project-media">
+                        <div class="project-placeholder">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <span class="project-badge">Compilador</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>MonkeyCompiler</h3>
+                        <p>Compilador/intérprete para el lenguaje Monkey con análisis léxico, sintáctico y semántico.
+                        </p>
+                        <div class="project-tech">
+                            <span>C#</span>
+                            <span>ANTLR4</span>
+                            <span>Python</span>
+                            <span>.NET 8</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/AnQuiro20/MonkeyCompiler" class="btn-project" target="_blank">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                        </div>
+                    </div>
                 </article>
 
-                <article class="certification-card">
-                    <h3>Dashboard-de-compras-online</h3>
-                    <p><span class="code-comment">// Tecnologías:</span> Python, Streamlit, Pandas, Plotly, NumPy</p>
-                    <p>
-                        Aplicación web interactiva construida con Streamlit para analizar y visualizar hábitos de compra
-                        en
-                        diferentes plataformas de comercio electrónico.
-                    </p>
-                    <a href="https://github.com/AnQuiro20/Dashboard-de-compras-online" class="btn" target="_blank"
-                        rel="noopener noreferrer">
-                        <i class="fas fa-external-link-alt"></i> Ver Proyecto
-                    </a>
+                <article class="project-card" data-category="web">
+                    <div class="project-media">
+                        <div class="project-placeholder">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <span class="project-badge">Full Stack</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Registro Ganadero - FincaQR</h3>
+                        <p>Sistema completo para registro y gestión de ganado con base de datos.</p>
+                        <div class="project-tech">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                            <span>Firebase</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/AnQuiro20/FincaQR" class="btn-project" target="_blank">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                        </div>
+                    </div>
                 </article>
 
-                <article class="certification-card">
-                    <h3>MonkeyCompiler</h3>
-                    <p><span class="code-comment">// Tecnologías:</span> C# (.NET 8.0), ANTLR4, Python 3 + Tkinter, CIL / Reflection.Emit. </p>
-                    <p>
-                        Un compilador/intérprete para el lenguaje de programación Monkey, construido utilizando técnicas de
-                        análisis léxico, sintáctico y semántico. Permite ejecutar programas escritos en Monkey y visualizar su
-                        salida. 
-                    </p>
-                    <a href="https://github.com/AnQuiro20/MonkeyCompiler" class="btn" target="_blank"
-                        rel="noopener noreferrer">
-                        <i class="fas fa-external-link-alt"></i> Ver Proyecto
-                    </a>
+                <article class="project-card" data-category="python">
+                    <div class="project-media">
+                        <div class="project-placeholder">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <span class="project-badge">Python</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Sistema de Reuniones con Voz</h3>
+                        <p>Sistema para registrar minutas mediante reconocimiento de voz y generar reportes.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>SpeechRecognition</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/AnQuiro20/Meeting-Recording-System-with-Voice-Recognition"
+                                class="btn-project" target="_blank">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="web">
+                    <div class="project-media">
+                        <div class="project-placeholder">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <span class="project-badge">Web</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Portafolio Web</h3>
+                        <p>Diseño y desarrollo de sitio web personal responsive (este mismo portafolio).</p>
+                        <div class="project-tech">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/AnQuiro20/Mi_portafolio" class="btn-project" target="_blank">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                        </div>
+                    </div>
                 </article>
             </div>
         </section>
 
-        <section class="certifications">
+        <!-- Sección Certificaciones con diseño de tarjetas premium -->
+        <section id="certifications" class="certifications glass-card">
             <h2>Certificaciones</h2>
-
-            <div class="certification-grid">
-                <article class="certification-card">
-                    <h3>Voluntariado – Campeonato Mundial Universitario de Ciclismo</h3>
-                    <p><span class="code-comment">// Organización:</span> FISU y Federación Deportiva Universitaria</p>
-                    <p class="date"><span class="code-comment">// Fecha:</span> 29 de mayo – 3 de junio de 2024</p>
-                    <a href="Certificaciones/fisu.jpg" target="_blank" rel="noopener noreferrer"
-                        class="btn btn-certificate">
-                        <i class="fas fa-certificate"></i> Ver certificado
-                    </a>
+            <div class="cert-grid">
+                <article class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>Voluntariado – Campeonato Mundial Universitario de Ciclismo</h3>
+                        <p class="cert-org">FISU · Federación Deportiva Universitaria</p>
+                        <p class="cert-date">Junio 2024</p>
+                        <a href="Certificaciones/fisu.jpg" target="_blank" class="cert-link">
+                            <i class="fas fa-certificate"></i> Ver certificado
+                        </a>
+                    </div>
                 </article>
 
-                <article class="certification-card">
-                    <h3>Productividad con IA Generativa</h3>
-                    <p><span class="code-comment">// Instituciones:</span> Microsoft y LinkedIn</p>
-                    <p><span class="code-comment">// Modalidad:</span> Curso en línea</p>
-                    <p class="date"><span class="code-comment">// Fecha:</span> Junio 2025</p>
-                    <a href="Certificaciones/CredMicrosoft.jpg" target="_blank" rel="noopener noreferrer"
-                        class="btn btn-certificate">
-                        <i class="fas fa-certificate"></i> Ver certificado
-                    </a>
+                <article class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>Productividad con IA Generativa</h3>
+                        <p class="cert-org">Microsoft · LinkedIn</p>
+                        <p class="cert-date">Junio 2025</p>
+                        <a href="Certificaciones/CredMicrosoft.jpg" target="_blank" class="cert-link">
+                            <i class="fas fa-certificate"></i> Ver certificado
+                        </a>
+                    </div>
                 </article>
 
-                <article class="certification-card">
-                    <h3>GitHub Completo</h3>
-                    <p><span class="code-comment">// Institución:</span> Cursa</p>
-                    <p><span class="code-comment">// Modalidad:</span> Curso en línea</p>
-                    <p class="date"><span class="code-comment">// Fecha:</span> Junio 2025</p>
-                    <a href="Certificaciones/git.png" target="_blank" rel="noopener noreferrer"
-                        class="btn btn-certificate">
-                        <i class="fas fa-certificate"></i> Ver certificado
-                    </a>
+                <article class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>GitHub Completo</h3>
+                        <p class="cert-org">Cursa</p>
+                        <p class="cert-date">Junio 2025</p>
+                        <a href="Certificaciones/git.png" target="_blank" class="cert-link">
+                            <i class="fas fa-certificate"></i> Ver certificado
+                        </a>
+                    </div>
                 </article>
 
-                <article class="certification-card">
-                    <h3>Habilidades Blandas y Liderazgo para la Transformación</h3>
-                    <p><span class="code-comment">// Programa:</span> Transformación Costa Rica</p>
-                    <p><span class="code-comment">// Instituciones:</span> Mejoremos Costa Rica &amp; Maxwell Leadership
-                        Foundation
-                    </p>
-                    <p><span class="code-comment">// Modalidad:</span> Curso en línea</p>
-                    <p class="date"><span class="code-comment">// Fecha:</span> Octubre 2023</p>
-                    <a href="Certificaciones/HB.jpg" target="_blank" rel="noopener noreferrer"
-                        class="btn btn-certificate">
-                        <i class="fas fa-certificate"></i> Ver certificado
-                    </a>
+                <article class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>Habilidades Blandas y Liderazgo</h3>
+                        <p class="cert-org">Transformación Costa Rica · Maxwell Leadership</p>
+                        <p class="cert-date">Octubre 2023</p>
+                        <a href="Certificaciones/HB.jpg" target="_blank" class="cert-link">
+                            <i class="fas fa-certificate"></i> Ver certificado
+                        </a>
+                    </div>
                 </article>
 
-                <article class="certification-card">
-                    <h3>Procesamiento de Imágenes Médicas con Deep Learning</h3>
-                    <p><span class="code-comment">// Organización:</span> K-LAB</p>
-                    <p><span class="code-comment">// Modalidad:</span> Curso en línea</p>
-                    <p class="date"><span class="code-comment">// Fecha:</span> Junio – Julio 2025</p>
-                    <a href="Certificaciones/Procesamiento de Imágenes Médicas con Deep Learning.jpg" target="_blank"
-                        rel="noopener noreferrer" class="btn btn-certificate">
-                        <i class="fas fa-certificate"></i> Ver certificado
-                    </a>
+                <article class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>Procesamiento de Imágenes Médicas con Deep Learning</h3>
+                        <p class="cert-org">K-LAB</p>
+                        <p class="cert-date">Junio – Julio 2025</p>
+                        <a href="Certificaciones/Procesamiento de Imágenes Médicas con Deep Learning.jpg"
+                            target="_blank" class="cert-link">
+                            <i class="fas fa-certificate"></i> Ver certificado
+                        </a>
+                    </div>
                 </article>
 
-                <article class="certification-card">
-                    <h3>Fundamentos de Servicios Web</h3>
-                    <p><span class="code-comment">// Organización:</span> K-LAB</p>
-                    <p><span class="code-comment">// Modalidad:</span> Curso en línea</p>
-                    <p class="date"><span class="code-comment">// Fecha:</span> Mayo – Junio 2025</p>
-                    <a href="Certificaciones/Fundamentos de Servicios WEB.jpg" target="_blank" rel="noopener noreferrer"
-                        class="btn btn-certificate">
-                        <i class="fas fa-certificate"></i> Ver certificado
-                    </a>
+                <article class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>Fundamentos de Servicios Web</h3>
+                        <p class="cert-org">K-LAB</p>
+                        <p class="cert-date">Mayo – Junio 2025</p>
+                        <a href="Certificaciones/Fundamentos de Servicios WEB.jpg" target="_blank" class="cert-link">
+                            <i class="fas fa-certificate"></i> Ver certificado
+                        </a>
+                    </div>
                 </article>
 
-                <article class="certification-card">
-                    <h3>Participación en COMPDES 2025</h3>
-                    <p><span class="code-comment">// Organización:</span> COMPDES</p>
-                    <p><span class="code-comment">// Tipo de actividad:</span> Congreso</p>
-                    <p class="date"><span class="code-comment">// Fecha:</span> Julio 2025</p>
-                    <a href="Certificaciones/COMPDES.jpg" target="_blank" rel="noopener noreferrer"
-                        class="btn btn-certificate">
-                        <i class="fas fa-certificate"></i> Ver certificado
-                    </a>
+                <article class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>Participación en COMPDES 2025</h3>
+                        <p class="cert-org">COMPDES</p>
+                        <p class="cert-date">Julio 2025</p>
+                        <a href="Certificaciones/COMPDES.jpg" target="_blank" class="cert-link">
+                            <i class="fas fa-certificate"></i> Ver certificado
+                        </a>
+                    </div>
                 </article>
             </div>
         </section>
 
-        <section class="skills">
-            <h2>Habilidades Técnicas</h2>            <!-- Mejor semántica: lista -->
-            <ul class="skills-grid" role="list">
-                <li class="skill-tag">Python</li>
-                <li class="skill-tag">Java</li>
-                <li class="skill-tag">JavaScript</li>
-                <li class="skill-tag">HTML</li>
-                <li class="skill-tag">CSS</li>
-                <li class="skill-tag">Git</li>
-                <li class="skill-tag">Firebase</li>
-                <li class="skill-tag">Supabase</li>
-            </ul>
-        </section>
-    </main>
+        <!-- Sección Habilidades con visualización mejorada -->
+        <section id="skills" class="skills glass-card">
+            <h2>Tecnologías</h2>
 
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="mailto:quirosandres230@gmail.com" aria-label="Enviar correo">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://github.com/AnQuiro20" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://linkedin.com/in/andres-quirós-b769a0366" target="_blank">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://x.com/andresquirosr" target="_blank">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://www.instagram.com/andresquirosrojas/" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                </a>
+            <div class="tech-grid">
+                <!-- Python -->
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h4>Python</h4>
+                    <div class="tech-badges">
+                        <span class="badge">Flask</span>
+                        <span class="badge">Pandas</span>
+                        <span class="badge">Streamlit</span>
+                    </div>
+                </div>
+
+                <!-- JavaScript -->
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <h4>JavaScript</h4>
+                    <div class="tech-badges">
+                        <span class="badge">ES6</span>
+                        <span class="badge">DOM</span>
+                        <span class="badge">Fetch</span>
+                    </div>
+                </div>
+
+                <!-- Java -->
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fab fa-java"></i>
+                    </div>
+                    <h4>Java</h4>
+                    <div class="tech-badges">
+                        <span class="badge">POO</span>
+                        <span class="badge">Swing</span>
+                    </div>
+                </div>
+
+                <!-- C# -->
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h4>C#</h4>
+                    <div class="tech-badges">
+                        <span class="badge">.NET</span>
+                        <span class="badge">LINQ</span>
+                    </div>
+                </div>
+
+                <!-- HTML5 -->
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h4>HTML5</h4>
+                    <div class="tech-badges">
+                        <span class="badge">Semántico</span>
+                        <span class="badge">Accesibilidad</span>
+                    </div>
+                </div>
+
+                <!-- CSS3 -->
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <h4>CSS3</h4>
+                    <div class="tech-badges">
+                        <span class="badge">Flexbox</span>
+                        <span class="badge">Grid</span>
+                        <span class="badge">Animaciones</span>
+                    </div>
+                </div>
+
+                <!-- Git -->
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fab fa-git-alt"></i>
+                    </div>
+                    <h4>Git</h4>
+                    <div class="tech-badges">
+                        <span class="badge">Branching</span>
+                        <span class="badge">Merge</span>
+                        <span class="badge">GitHub</span>
+                        <span class="badge">GitHub Pages</span>
+
+                    </div>
+                </div>
+
+                <!-- Firebase -->
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h4>Firebase</h4>
+                    <div class="tech-badges">
+                        <span class="badge">Auth</span>
+                        <span class="badge">Firestore</span>
+                    </div>
+                </div>
+
+                <!-- Supabase -->
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h4>Supabase</h4>
+                    <div class="tech-badges">
+                        <span class="badge">PostgreSQL</span>
+                        <span class="badge">Auth</span>
+                    </div>
+                </div>
             </div>
-            <p>&copy; <span id="current-year">2026</span> Andrés Quirós Rojas. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+        </section>
+        <!-- Sección de Contacto -->
+        <section id="contact" class="contact glass-card">
+            <h2>Contacto</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <p>¿Interesado en colaborar o tienes alguna pregunta? ¡Estoy a un mensaje de distancia!</p>
+        
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:quirosandres230@gmail.com">quirosandres230@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Ubicación</h4>
+                                <p>Cartago, Costa Rica</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <div>
+                                <h4>Disponibilidad</h4>
+                                <p>Freelance · Tiempo parcial · Prácticas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Tu email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="4" placeholder="Tu mensaje..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fas fa-paper-plane"></i> Enviar mensaje
+                    </button>
+                </form>
+            </div>
+        </section>
+        </main>
+        
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <span class="logo">&lt;AnQuiRo/&gt;</span>
+                        <p>Ingeniería en Computación · TEC</p>
+                    </div>
+        
+                    <div class="footer-links">
+                        <a href="#about">Sobre mí</a>
+                        <a href="#projects">Proyectos</a>
+                        <a href="#certifications">Certificaciones</a>
+                        <a href="#skills">Habilidades</a>
+                    </div>
+        
+                    <div class="footer-social">
+                        <a href="mailto:quirosandres230@gmail.com" aria-label="Enviar correo">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://github.com/AnQuiro20" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/andres-quirós-b769a0366" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://x.com/andresquirosr" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/andresquirosrojas/" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+        
+                <div class="footer-bottom">
+                    <p>&copy; <span id="current-year"></span> Andrés Quirós Rojas.<p>
+                </div>
+            </div>
+        </footer>
+        <!-- EmailJS - AÑADE ESTO JUSTO ANTES DE script.js -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-
-    <script src="script.js"></script>
-</body>
-
-</html>
+        <script src="script.js"></script>
+        </body>
+        
+        </html>
