@@ -452,3 +452,16 @@ function initScrollAnimations() {
         observer.observe(el);
     });
 }
+
+const toggleBtn = document.getElementById("toggleCerts");
+const hiddenCerts = document.getElementById("hiddenCerts");
+
+toggleBtn.addEventListener("click", () => {
+    if (hiddenCerts.style.display === "grid") {
+        hiddenCerts.style.display = "none";
+        toggleBtn.textContent = "Ver más certificaciones";
+    } else {
+        hiddenCerts.style.display = "grid";
+        toggleBtn.textContent = "Ver menos";
+    }
+});

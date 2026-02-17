@@ -1643,3 +1643,43 @@ h1 {
 h2 {
     font-size: clamp(1.6rem, 6vw, 2.2rem);
 }
+
+/* Glow especial destacadas */
+.featured-cert {
+    border: 1px solid rgba(100, 255, 218, 0.5);
+    box-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
+    transition: all 0.3s ease;
+}
+
+.featured-cert:hover {
+    box-shadow: 0 0 25px rgba(100, 255, 218, 0.6);
+    transform: translateY(-5px);
+}
+
+/* Ocultar sección */
+.hidden-certs {
+    display: none;
+}
+
+.show-more-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.featured-cert {
+    border: 1px solid rgba(100, 255, 218, 0.6);
+    box-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
+    transition: all 0.3s ease;
+}
+
+.featured-cert:hover {
+    box-shadow: 0 0 25px rgba(100, 255, 218, 0.7);
+    transform: translateY(-6px);
+}
+
+.cert-section-title {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    opacity: 0.9;
+}
