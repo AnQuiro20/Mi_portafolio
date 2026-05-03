@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initProjectFilters();
     initSkillBars();
     initSmoothScroll();
-    initContactForm(); // ✅ FORMULARIO FUNCIONAL
+    initContactForm(); 
     initScrollAnimations();
 });
 
